@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Hello World NEAR DApp</title>
+ <meta charset="utf-8">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+ <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700' rel='stylesheet' type='text/css'>
+ <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="container">
+ <h1>A Simple Voting Application</h1>
+
+ <div class="sign-in" style="display: none;">
+  <p>You'll need to sign in to call contract methods:</p>
+  <button class="btn btn-primary" style="background-color: #0072CE;">Sign In</button>
+ </div>
+ <div class="after-sign-in" style="display: none;">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Candidate</th>
+      <th>Votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>Anna</td>
+      <td id="candidate1"></td>
+      </tr>
+      <tr>
+      <td>Jeff</td>
+      <td id="candidate2"></td>
+      </tr>
+      <tr>
+      <td>Jose</td>
+      <td id="candidate3"></td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    <h2>Vote for Candidate</h2>
+    <div id="msg"></div>
+    <input type="text" name="vote" />
+    <a href="#" onclick="voteForCandidate()" style="background-color: #1faa00;" class="btn btn-primary">Vote</a>
+    <div class="sign-out">
+      <button class="btn btn-primary" style="background-color: #0072CE;">Sign Out</button>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="./main.js"></script>
+</html>

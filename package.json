@@ -1,0 +1,34 @@
+{
+  "name": "rust-voting",
+  "description": "Voting Rust Smart Contract\n\nThis project contains implementation of voting app backed by blockchain, written in Rust.",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "cd contract && cargo build --target wasm32-unknown-unknown --release",
+    "postbuild": "cp contract/target/wasm32-unknown-unknown/release/rust_voting.wasm ./out/main.wasm",
+    "deploy:contract": "near deploy",
+    "deploy:pages": "gh-pages -d src",
+    "deploy": "yarn build && yarn deploy:contract && yarn deploy:pages",
+    "deploy:dev": "yarn build && near dev-deploy",
+    "dev": "yarn deploy:dev && yarn start:dev",
+    "prestart": "yarn build && yarn deploy:contract",
+    "start": "parcel src/index.html",
+    "start:dev": "env-cmd -f ./neardev/dev-account.env parcel src/index.html",
+    "test": "yarn build && jest && cd contract && cargo test -- --nocapture"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "gh-pages": "~2.2.0",
+    "jest": "~25.2.0",
+    "jest-environment-node": "~25.2.3",
+    "near-shell": "~0.20.9",
+    "nodemon": "~2.0.2",
+    "parcel-bundler": "~1.12.4"
+  },
+  "jest": {
+    "testEnvironment": "near-shell/test_environment"
+  },
+  "dependencies": {
+    "near-api-js": "^0.23.2",
+    "regenerator-runtime": "^0.13.5"
+  }
+}
