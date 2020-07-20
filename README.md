@@ -1,4 +1,4 @@
-Near voting dapp example in Rust
+Near voting DApp example in Rust
 =================================
 
 ## Description
