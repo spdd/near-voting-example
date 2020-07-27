@@ -1,0 +1,14 @@
+# CODEOWNERS: https://help.github.com/articles/about-codeowners/
+
+/chain/ @SkidanovAlex @bowenwang1996
+/chain/jsonrpc/ @frol @evgenykuzyakov
+
+/runtime/ @evgenykuzyakov @frol @nearmax
+/runtime/runtime-params-estimator @olonho @nearmax
+/runtime/runtime-standalone @frol @fckt
+/runtime/near-vm-runner-standalone @frol @fckt
+
+/genesis-tools/ @nearmax
+
+/core/  @bowenwang1996 @frol @evgenykuzyakov @nearmax @SkidanovAlex
+/neard/ @bowenwang1996 @frol @evgenykuzyakov @nearmax @SkidanovAlex

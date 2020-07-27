@@ -1,0 +1,62 @@
+[package]
+name = "near-vm-logic"
+version = "1.0.0"
+authors = ["Near Inc <hello@nearprotocol.com>"]
+edition = "2018"
+license = "Apache-2.0"
+readme = "README.md"
+categories = ["wasm"]
+repository = "https://github.com/nearprotocol/nearcore"
+homepage = "https://github.com/nearprotocol/nearcore"
+description = """
+This crate implements the specification of the interface that Near blockchain exposes to the smart contracts.
+"""
+
+[dependencies]
+byteorder = "1.2"
+bs58 = "0.3"
+base64 = "0.11"
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.8"
+sha3 = "0.8"
+
+near-runtime-fees = { path = "../near-runtime-fees", version = "1.0.0" }
+near-vm-errors = { path = "../near-vm-errors", version = "1.0.0" }
+
+[dev-dependencies]
+serde_json = {version= "1", features= ["preserve_order"]}
+
+[features]
+default = ["costs_counting"]
+
+# Use this feature to enable counting of fees and costs applied.
+costs_counting = []
+
+[[test]]
+name = "test_storage_read_write"
+path = "tests/test_storage_read_write.rs"
+
+[[test]]
+name = "test_context"
+path = "tests/test_context.rs"
+
+[[test]]
+name = "test_miscs"
+path = "tests/test_miscs.rs"
+required-features = ["costs_counting"]
+
+[[test]]
+name = "test_registers"
+path = "tests/test_registers.rs"
+
+[[test]]
+name = "test_storage_usage"
+path = "tests/test_storage_usage.rs"
+
+[[test]]
+name = "test_promises"
+path = "tests/test_promises.rs"
+
+[[test]]
+name = "test_iterators"
+path = "tests/test_iterators.rs"

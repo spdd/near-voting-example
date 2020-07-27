@@ -1,0 +1,40 @@
+[package]
+name = "near-chain"
+version = "0.1.0"
+authors = ["Near Inc <hello@nearprotocol.com>"]
+edition = "2018"
+
+[dependencies]
+chrono = { version = "0.4.4", features = ["serde"] }
+log = "0.4"
+failure = "0.1"
+failure_derive = "0.1"
+lazy_static = "1.4"
+rocksdb = "0.14"
+rand = "0.7"
+serde = { version = "1", features = [ "derive" ] }
+cached = "0.12"
+num-rational = "0.2.4"
+tracing = "0.1.13"
+thiserror = "1.0"
+strum = "0.18"
+strum_macros = "0.18"
+
+borsh = "0.7.0"
+
+near-chain-configs = { path = "../../core/chain-configs" }
+near-crypto = { path = "../../core/crypto" }
+near-primitives = { path = "../../core/primitives" }
+near-store = { path = "../../core/store" }
+near-metrics = { path = "../../core/metrics" }
+near-pool = { path = "../pool" }
+
+[dev-dependencies]
+near-logger-utils = {path = "../../test-utils/logger"}
+
+[features]
+# if enabled, we assert in most situations that are impossible unless some byzantine behavior is observed.
+byzantine_asserts = []
+expensive_tests = []
+adversarial = []
+no_cache = ["near-store/no_cache"]
